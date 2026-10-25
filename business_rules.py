@@ -4,15 +4,15 @@ def calculate_bean_cost(bag_price: float, bags: int) -> float:
 def get_bulk_discount(bags: int, partner: bool = False) -> float:
     if bags < 20: 
         discount = 0.0
-    elif bags < 80:
+    elif 20 <= bags <= 79:
         discount = 0.09
     else:
         discount = 0.14
 
-        if partner and bags >=20:
+        if partner and bags >= 20:
             discount += 0.04
 
-        return discount 
+    return discount 
 
 
 def calculate_shipment_total(
