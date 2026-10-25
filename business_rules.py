@@ -27,7 +27,28 @@ def calculate_shipment_total(
 
     return discounted_cost
 
- 
+def requires_prepayment(total: float) -> bool:
+    return total >= 1500
+
+def needs_pallet(bags: int, total: float) -> bool:
+    return bags > 60 and total > 700
+
+def total_shipped(shipments: list) -> float:
+    total = 0.0
+
+    for shipment in shipments:
+        shipment_total = calculate_shipment_total(
+            shipment["bag_price"],
+            shipment["bags"],
+            shipment.get("partner", False),
+        )
+        total += shipment_total
+
+    return total
+
+
+
+
 
 
     
