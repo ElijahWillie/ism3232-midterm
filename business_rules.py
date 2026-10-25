@@ -46,6 +46,33 @@ def total_shipped(shipments: list) -> float:
 
     return total
 
+def largest_shipment(shipments: list) -> str:
+    largest_total = float('-inf')
+    largest_buyer = ""
+
+    for shipment in shipments:
+        shipment_total = calculate_shipment_total(
+            shipment["bag_price"],
+            shipment["bags"],
+            shipment.get("partner", False)
+        )
+
+        if shipment_total > largest_total:
+            largest_total = shipment_total
+            largest_buyer = shipment["buyer"]
+
+    return largest_buyer
+
+def format_shipment_line(
+    buyer: str, total: float, prepayment: bool, pallet: bool) -> str:
+    prepayment_text = "yes" if prepayment else "no"
+    pallet_text = "yes" if pallet else "no"
+
+    return (
+        f"{buyer}: ${total:.2f} | "
+        f"prepayment: {prepayment_text} | "
+        f"pallet: {pallet_text}"
+    )
 
 
 
