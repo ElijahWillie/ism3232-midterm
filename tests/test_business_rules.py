@@ -1,4 +1,3 @@
-
 from business_rules import (
     calculate_bean_cost,
     get_bulk_discount,
@@ -13,6 +12,7 @@ from business_rules import (
 
 # RULE 1: Calculate bean cost
 
+
 def test_bean_cost_multiplies_price_by_bags():
     assert round(calculate_bean_cost(14.00, 10), 2) == 140.00
 
@@ -22,6 +22,7 @@ def test_bean_cost_with_decimal_price():
 
 
 # RULES 2 AND 3: Bulk and partner discounts
+
 
 def test_discount_at_19_bags_is_zero():
     assert get_bulk_discount(19) == 0.0
@@ -53,6 +54,7 @@ def test_partner_at_80_bags_gets_eighteen_percent():
 
 # RULE 4: Shipment totals and shipping fees
 
+
 def test_shipping_fee_when_discounted_cost_just_below_250():
     assert round(calculate_shipment_total(249.99, 1), 2) == 284.99
 
@@ -76,6 +78,7 @@ def test_partner_true_changes_yarrow_shipment_total():
 
 # RULE 5: Prepayment requirements
 
+
 def test_prepayment_just_below_1500_is_false():
     assert requires_prepayment(1499.99) is False
 
@@ -89,6 +92,7 @@ def test_prepayment_just_above_1500_is_true():
 
 
 # RULE 6: Freight pallet requirements
+
 
 def test_pallet_at_60_bags_with_high_total_is_false():
     assert needs_pallet(60, 701.00) is False
@@ -107,6 +111,7 @@ def test_pallet_above_700_total_with_enough_bags_is_true():
 
 
 # FUNCTION 6: Total shipped
+
 
 def test_total_shipped_adds_short_list():
     shipments = [
@@ -130,6 +135,7 @@ def test_total_shipped_empty_list_is_zero():
 
 # FUNCTION 7: Largest shipment
 
+
 def test_largest_shipment_returns_highest_buyer():
     shipments = [
         {"buyer": "First", "bag_price": 14.00, "bags": 10, "partner": False},
@@ -152,6 +158,7 @@ def test_largest_shipment_empty_list_returns_empty_string():
 
 # FUNCTION 8: Format shipment line
 
+
 def test_format_shipment_line_with_no_flags():
     assert format_shipment_line("Uptown Bakery", 175.00, False, False) == (
         "Uptown Bakery: $175.00 | prepayment: no | pallet: no"
@@ -168,4 +175,3 @@ def test_format_shipment_line_with_mixed_flags_and_two_decimals():
     assert format_shipment_line("Sample Shop", 20.50, True, False) == (
         "Sample Shop: $20.50 | prepayment: yes | pallet: no"
     )
-

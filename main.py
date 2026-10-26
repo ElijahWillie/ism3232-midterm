@@ -1,4 +1,13 @@
-from business_rules import (calculate_shipment_total, requires_prepayment, needs_pallet, total_shipped, largest_shipment, format_shipment_line, calculate_bean_cost, get_bulk_discount,)
+from business_rules import (
+    calculate_shipment_total,
+    requires_prepayment,
+    needs_pallet,
+    total_shipped,
+    largest_shipment,
+    format_shipment_line,
+    calculate_bean_cost,
+    get_bulk_discount,
+)
 
 shipments = [
     {"buyer": "Uptown Bakery", "bag_price": 14.00, "bags": 10, "partner": False},
@@ -17,7 +26,7 @@ shipment_count = 0
 prepayment_count = 0
 pallet_count = 0
 
-for shipment in shipments: 
+for shipment in shipments:
     buyer = shipment["buyer"]
     bag_price = shipment["bag_price"]
     bags = shipment["bags"]
@@ -48,7 +57,3 @@ print(f"Average shipment total: ${average_total:.2f}")
 print(f"Largest shipment total: {largest_buyer}")
 print(f"Prepayments required: {prepayment_count}")
 print(f"Pallets needed: {pallet_count}")
-
-
-
- 
