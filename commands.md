@@ -40,6 +40,15 @@
 # The only python file that prints is the main.py file. The business_rules.py file wasn't included on the list because that file is only meant to hold functions for other files to pull from. This prevents breaking definitions and formulas by changing an external dependency. It also allows you to easily see the problems that the software solves an business_rules.py and what the startup sequence looks like in main.py
 
 ## 6. The commit history
+5aac944 (HEAD -> main, origin/main) README.md file completed
+a4e62f7 First 5 parts of commands.md completed
+bcbff6a 30 pytests written, discount function in business rules altered to satisfy 3 previously failed tests
+68b0940 main.py written out
+164259a Business Rules 7 & 8 added
+ca8663f Business rules 4-6 added
+b098840 First 3 business rules added
+71c4b38 Initial Midterm Setup
+
 
 
 
