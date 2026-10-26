@@ -38,7 +38,8 @@
     - echo '.venv/' > .gitignore && echo '__pycache__/' >> .gitignore
     ```
 - Command to run the test
-    ```python3 main.py
+    ```
+    - python3 main.py
     ```
 ## How to Test
 ```
